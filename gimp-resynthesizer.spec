@@ -3,7 +3,7 @@
 
 Summary: Gimp plug-in for texture synthesis
 Name: gimp-resynthesizer
-Version: 0.15
+Version: 0.16
 Release: %mkrel 1
 Group: Graphics
 License: GPLv2+
@@ -12,6 +12,7 @@ BuildRequires: gimp, gimp-devel
 Buildroot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 URL: http://logarithmic.net/pfh/resynthesizer
 Source: http://logarithmic.net/pfh-files/resynthesizer/resynthesizer-%{version}.tar.gz
+Patch: resynthesizer-0.16-optflags.patch
 
 %description
 Resynthesizer is a Gimp plug-in for texture synthesis. Given a sample of a 
@@ -22,9 +23,10 @@ texture, it can create more of that texture. This has uses including:
 
 %prep
 %setup -q -n resynthesizer-%{version}
+%patch -p1
 
 %build
-%make CFLAGS="%{optflags}" GIMPTOOL=gimptool-2.0
+%make OPTFLAGS="%{optflags}" GIMPTOOL=gimptool-2.0
 
 %install
 %__rm -rf %{buildroot}
