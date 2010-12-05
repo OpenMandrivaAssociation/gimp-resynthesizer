@@ -4,7 +4,7 @@
 Summary: Gimp plug-in for texture synthesis
 Name: gimp-resynthesizer
 Version: 0.16
-Release: %mkrel 2
+Release: %mkrel 3
 Group: Graphics
 License: GPLv2+
 Requires: gimp
