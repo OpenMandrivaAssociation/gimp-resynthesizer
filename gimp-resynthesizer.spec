@@ -1,19 +1,19 @@
-%define gimpplugindir %(gimptool-2.0 --gimpplugindir)/plug-ins
-%define gimpscriptdir %(gimptool-2.0 --gimpdatadir)/scripts
+%define git e637010
 
 Summary: Gimp plug-in for texture synthesis
 Name: gimp-resynthesizer
-Version: 0.16
-Release: %mkrel 3
+Version: 2.0
+Release: %mkrel 0.1
 Group: Graphics
 License: GPLv2+
 Requires: gimp
 Obsoletes: gimp2-resynthesizer
 Provides: gimp2-resynthesizer
 BuildRequires: gimp, gimp-devel
+BuildRequires: intltool
 Buildroot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 URL: http://logarithmic.net/pfh/resynthesizer
-Source: http://logarithmic.net/pfh-files/resynthesizer/resynthesizer-%{version}.tar.gz
+Source: bootchk-resynthesizer-v%{version}-1-g%git.zip
 Patch: resynthesizer-0.16-optflags.patch
 
 %description
@@ -24,27 +24,24 @@ texture, it can create more of that texture. This has uses including:
 - Creating themed images (by transfering a texture from one image to another)
 
 %prep
-%setup -q -n resynthesizer-%{version}
-%patch -p1
+%setup -q -n bootchk-resynthesizer-%git/
+./autogen.sh
 
 %build
-%make OPTFLAGS="%{optflags}" GIMPTOOL=gimptool-2.0
+%configure2_5x
+%make
 
 %install
 %__rm -rf %{buildroot}
-%__install -p -d %{buildroot}/%{gimpplugindir}
-%__install -p -d %{buildroot}/%{gimpscriptdir}
-%__install -p resynth %{buildroot}/%{gimpplugindir}/
-%__install -p -m 644 smart-remove.scm %{buildroot}/%{gimpscriptdir}
-%__install -p -m 644 smart-enlarge.scm %{buildroot}/%{gimpscriptdir}
+%makeinstall_std
+%find_lang resynthesizer
 
 %clean
 %__rm -rf %{buildroot}
 
-%files
+%files -f resynthesizer.lang
 %defattr(-,root,root,-)
 %doc README COPYING
-%{gimpplugindir}/resynth
-%{gimpscriptdir}/smart-remove.scm
-%{gimpscriptdir}/smart-enlarge.scm
+%_libdir/gimp/*/plug-ins/*
+%_datadir/resynthesizer
 
