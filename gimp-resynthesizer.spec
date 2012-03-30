@@ -14,7 +14,7 @@ BuildRequires: intltool
 Buildroot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 URL: http://logarithmic.net/pfh/resynthesizer
 Source: bootchk-resynthesizer-v%{version}-1-g%git.zip
-Patch: resynthesizer-0.16-optflags.patch
+Patch0: resynthesizer-2.0-fix-linking.patch
 
 %description
 Resynthesizer is a Gimp plug-in for texture synthesis. Given a sample of a 
@@ -25,6 +25,7 @@ texture, it can create more of that texture. This has uses including:
 
 %prep
 %setup -q -n bootchk-resynthesizer-%git/
+%apply_patches
 ./autogen.sh
 
 %build
