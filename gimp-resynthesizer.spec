@@ -46,3 +46,38 @@ texture, it can create more of that texture. This has uses including:
 %_libdir/gimp/*/plug-ins/*
 %_datadir/resynthesizer
 
+
+
+%changelog
+* Fri Mar 30 2012 Götz Waschk <waschk@mandriva.org> 2.0-0.1mdv2012.0
++ Revision: 788329
+- fix linking
+- new version
+- fix build
+
+* Sun Dec 05 2010 Oden Eriksson <oeriksson@mandriva.com> 0.16-3
++ Revision: 610855
+- rebuild
+
+* Sun Mar 28 2010 Götz Waschk <waschk@mandriva.org> 0.16-2mdv2010.1
++ Revision: 528585
+- obsolete old gimp2-resynthesizer package (Anssi)
+
+* Tue Sep 02 2008 Götz Waschk <waschk@mandriva.org> 0.16-1mdv2009.0
++ Revision: 278860
+- new version
+- fix build
+
+* Mon Sep 01 2008 Götz Waschk <waschk@mandriva.org> 0.15-1mdv2009.0
++ Revision: 278112
+- import gimp-resynthesizer
+
+
+* Mon Feb 18 2008 Fedora Release Engineering <rel-eng@fedoraproject.org> - 0.15-3
+- Autorebuild for GCC 4.3
+
+*Sun Aug 19 2007 Ewan Mac Mahon <ewan@macmahon.me.uk> - 0.15-2
+Fixed review problems: Spurious comment, License tag, variable style 
+build root, ignoring opt flags.
+* Mon Jul 30 2007 Ewan Mac Mahon <ewan@macmahon.me.uk> - 0.15-1
+Initial Fedora package
