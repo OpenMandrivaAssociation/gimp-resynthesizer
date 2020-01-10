@@ -25,7 +25,7 @@ texture, it can create more of that texture. This has uses including:
 
 %prep
 %setup -q -n bootchk-resynthesizer-%git/
-%apply_patches
+%autopatch -p1
 ./autogen.sh
 
 %build
