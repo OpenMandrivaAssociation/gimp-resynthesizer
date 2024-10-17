@@ -12,7 +12,7 @@ Provides: gimp2-resynthesizer
 BuildRequires: gimp, gimp-devel
 BuildRequires: intltool
 Buildroot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
-URL: http://logarithmic.net/pfh/resynthesizer
+URL: https://logarithmic.net/pfh/resynthesizer
 Source: bootchk-resynthesizer-v%{version}-1-g%git.zip
 Patch0: resynthesizer-2.0-fix-linking.patch
 
