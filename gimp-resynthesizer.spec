@@ -9,6 +9,11 @@ License: GPLv2+
 Requires: gimp
 Obsoletes: gimp2-resynthesizer
 Provides: gimp2-resynthesizer
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires: gimp, gimp-devel
 BuildRequires: intltool
 Buildroot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
